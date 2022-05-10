@@ -10,6 +10,7 @@ import ForkLift from './Components/Folklift/forkLift';
 import ProductDistribution from './Components/Product/productDistribution';
 import VehicleManagement from './Components/Vehicle/vehicleManagement';
 import EmployeeTracking from './Components/Employee/employeeTracking';
+import StockForm from './Components/Stock/stockForm';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/qualityAssurance' element={<QualityAssurance />} />
         <Route path='/stockLevel' element={<StockLevel />} />
+        <Route path='/stockForm' element={<StockForm />} />
         <Route path='/forkLift' element={<ForkLift />} />
         <Route path='/productDistribution' element={<ProductDistribution />} />
         <Route path='/vehicleManagement' element={<VehicleManagement />} />
