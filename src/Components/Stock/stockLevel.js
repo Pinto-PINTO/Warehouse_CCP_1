@@ -2,8 +2,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css';
 import { Table, Container, Navbar, Row, Col, Nav, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import StockDataService from '../../Util/StockContext';
+import { useState } from 'react';
 
 function stockLevel() {
+
+    // States
+    const [stocks, setStocks] = useState([]);
+
+
+
+    // Fetch all stocks
+    useEffect(() => {
+        getStocks();
+        console.log("Getting all books from useEffect");
+    }, []);
+
+    const getStocks = async () => {
+        const data = await StockDataService.getAllStocks();
+        // setlastDoc(data.docs[data.docs.length - 1])
+        console.log(data.docs);
+        // setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+
 
     return (
 
@@ -21,9 +43,9 @@ function stockLevel() {
                         <thead>
                             <tr className="text-center p-2">
                                 <th>#</th>
-                                <th>Product ID</th>
                                 <th>Product Name</th>
                                 <th>Description</th>
+                                <th>Quantity</th>
                                 <th>Category</th>
                                 <th>Brand</th>
                                 <th>Status</th>
@@ -33,9 +55,9 @@ function stockLevel() {
                         <tbody>
                             <tr className="text-center p-2">
                                 <td>1</td>
-                                <td>AP3455</td>
                                 <td>Iphone 12 Pro Max</td>
                                 <td>12 GB RAM and 15 Mega Pixel Camera</td>
+                                <td>24</td>
                                 <td>Mobile Phones</td>
                                 <td>Apple</td>
                                 <td>High</td>
@@ -46,9 +68,9 @@ function stockLevel() {
                             </tr>
                             <tr className="text-center p-2">
                                 <td>2</td>
-                                <td>TG32424</td>
                                 <td>40W Grinder</td>
                                 <td>High Power hand grinder</td>
+                                <td>14</td>
                                 <td>Tools</td>
                                 <td>Hitachi</td>
                                 <td>Low</td>
