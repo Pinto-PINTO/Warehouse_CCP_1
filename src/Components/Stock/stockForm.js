@@ -178,7 +178,7 @@ function stockForm() {
                 <div className="container text-center mt-5">
                     <Row>
                         <Col>
-                            <Link to="/stockLevel">
+                            <Link to="/stockTag">
                                 <Button variant="secondary">Navigate to Stock Level Page</Button>
                             </Link>
                         </Col>

@@ -44,7 +44,7 @@ function Dashboard() {
                             <Card style={{ width: '18rem' }}>
                                 <Card.Body>
                                     <Card.Title className='text-center'>Track Stock</Card.Title>
-                                    <Link to="/stockLevel">
+                                    <Link to="/stockTag">
                                         Track Stock
                                     </Link>
                                 </Card.Body>

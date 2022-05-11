@@ -5,12 +5,13 @@ import New from './Components/Login/New';
 import Dashboard from './Components/Dashboard/Dashboard';
 import NewEmployeeLogin from './Components/Login/NewEmployeeLogin';
 import QualityAssurance from './Components/Quality/qualityAssurance';
-import StockLevel from './Components/Stock/stockLevel';
+// import StockLevel from './Components/Stock/stockLevel';
 import ForkLift from './Components/Folklift/forkLift';
 import ProductDistribution from './Components/Product/productDistribution';
 import VehicleManagement from './Components/Vehicle/vehicleManagement';
 import EmployeeTracking from './Components/Employee/employeeTracking';
 import StockForm from './Components/Stock/stockForm';
+import StockTag from './Components/Stock/stockTag';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
         <Route path='/new-employee-login' element={<NewEmployeeLogin />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/qualityAssurance' element={<QualityAssurance />} />
-        <Route path='/stockLevel' element={<StockLevel />} />
+        {/* <Route path='/stockLevel' element={<StockLevel />} /> */}
+        <Route path='/stockTag' element={<StockTag />} />
         <Route path='/stockForm' element={<StockForm />} />
         <Route path='/forkLift' element={<ForkLift />} />
         <Route path='/productDistribution' element={<ProductDistribution />} />
