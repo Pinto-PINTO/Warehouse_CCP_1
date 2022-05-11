@@ -40,6 +40,35 @@ class StockDataService {
         const stockDoc = doc(db, "stocks", id);
         return getDoc(stockDoc);
     }
+
+
+
+    // ------------- Filter Logic START -------------
+
+    Filter = (fname, fcategory, fbrand, fstatus) => {
+
+        let q = query(stockCollectionRef);
+
+        if (fname !== "") {
+            q = query(q, where("name", "==", fname))
+        }
+        if (fcategory !== "") {
+            q = query(q, where("category", "==", fcategory))
+        }
+        if (fbrand !== "") {
+            q = query(q, where("brand", "==", fbrand))
+        }
+        if (fstatus !== "") {
+            q = query(q, where("status", "==", fstatus))
+        }
+
+        return getDocs(q);
+    }
+
+    // ------------- Filter Logic END -------------
+
+
+
 }
 
 export default new StockDataService();

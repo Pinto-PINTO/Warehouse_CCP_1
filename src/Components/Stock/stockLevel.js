@@ -19,6 +19,12 @@ const StockList = ({ getStockId }) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // Filter States
+    const [fname, setFName] = useState("");
+    const [fcategory, setFCategory] = useState("");
+    const [fbrand, setFBrand] = useState("");
+    const [fstatus, setFStatus] = useState("");
+
     // Edit States
     const [ename, setEName] = useState("");
     const [edescription, setEDescription] = useState("");
@@ -29,6 +35,8 @@ const StockList = ({ getStockId }) => {
 
     // Storing Id of Edit
     const [currentId, setCurrentId] = useState("");
+    const [lastDoc, setlastDoc] = useState();
+
 
 
     // Fetch all stocks
@@ -102,9 +110,24 @@ const StockList = ({ getStockId }) => {
 
         //Refresh Page
         getStocks();
-
     }
 
+
+
+    // Filter Function
+    const Filter = async () => {
+
+        const data = await StockDataService.Filter(fname, fcategory, fbrand, fstatus);
+        console.log(data.docs);
+        // console.log("Results: ", data.docs.length);
+        setlastDoc(data.docs[data.docs.length - 1])
+        console.log("LAST DOC ", lastDoc)
+
+        setStocks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+
+        // Seting Visibility
+        // setShowResults(true);
+    }
 
 
 
@@ -117,6 +140,84 @@ const StockList = ({ getStockId }) => {
                         <h1>Track Stock</h1>
                     </div>
                 </div>
+
+
+                {/* ------------------- Fiter START -------------------- */}
+                <div className="filter-container mb-5">
+                    <Form className='p-4 p-sm-4 filter-section filter-form'>
+                        <Row>
+                            <Col>
+                                <Form.Group className="mb-4" controlId="formProductName">
+                                    <Form.Label>Product Name</Form.Label>
+                                    <InputGroup>
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Product Name"
+                                            onChange={(e) => setFName(e.target.value)}
+                                        />
+                                    </InputGroup>
+                                </Form.Group>
+                            </Col>
+                            <Col>
+                                {/* -------------- Category Dropdown START -------------- */}
+                                <Form.Group className="mb-3" controlId="formProductCategory">
+                                    <Form.Label>Category</Form.Label>
+                                    <Form.Select
+                                        aria-label="Categories"
+                                        onChange={(e) => setFCategory(e.target.value)}
+                                    >
+                                        <option value=""></option>
+                                        <option value="Mobile Phones">Mobile Phones</option>
+                                        <option value="Books">Books</option>
+                                        <option value="Tools">Tools</option>
+                                    </Form.Select>
+                                </Form.Group>
+                                {/* -------------- Category Dropdown END -------------- */}
+                            </Col>
+                            <Col>
+                                <Form.Group className="mb-4" controlId="formProductBrand">
+                                    <Form.Label>Brand</Form.Label>
+                                    <InputGroup>
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Brand"
+                                            onChange={(e) => setFBrand(e.target.value)}
+                                        />
+                                    </InputGroup>
+                                </Form.Group>
+                            </Col>
+                            <Col>
+                                {/* -------------- Status Dropdown START -------------- */}
+                                <Form.Group className="mb-3" controlId="formProductStatus">
+                                    <Form.Label>Status</Form.Label>
+                                    <Form.Select
+                                        aria-label="Status"
+                                        onChange={(e) => setFStatus(e.target.value)}
+                                    >
+                                        <option value=""></option>
+                                        <option value="High">High</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Very Low">Very Low</option>
+                                    </Form.Select>
+                                </Form.Group>
+                                {/* -------------- Status Dropdown END -------------- */}
+                            </Col>
+
+                        </Row>
+                        <Row className='mt-3'>
+                            <Col className="d-grid gap-2">
+                                <Button className="table-filter-btn" variant="success" type="button" onClick={(e) => { Filter(); }}>
+                                    FILTER
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Form>
+                </div>
+                {/* ------------------- Fiter END -------------------- */}
+
+
+
 
                 {/* ---------- Stock Table START ---------- */}
                 <div className="table-responsive table-edit">
@@ -152,7 +253,7 @@ const StockList = ({ getStockId }) => {
                                             >
                                                 Delete
                                             </Button>
-                                            <Button variant="secondary" onClick={(e) => { getStockId(doc.id); handleOpen(); handleUpdateClick(doc.id); setCurrentId(doc.id);}}>Update</Button>
+                                            <Button variant="secondary" onClick={(e) => { getStockId(doc.id); handleOpen(); handleUpdateClick(doc.id); setCurrentId(doc.id); }}>Update</Button>
                                             <Modal
                                                 open={open}
                                                 onClose={handleClose}
@@ -269,7 +370,7 @@ const StockList = ({ getStockId }) => {
                                                             {/* ------------- Update Form END ------------- */}
 
                                                             <div className="d-grid gap-2">
-                                                                <Button className="insert-btn" variant="primary" type="button" onClick={(e) => { handleClose(); handleUpdate()}} >
+                                                                <Button className="insert-btn" variant="primary" type="button" onClick={(e) => { handleClose(); handleUpdate() }} >
                                                                     Update
                                                                 </Button>
                                                             </div>

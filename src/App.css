@@ -349,4 +349,8 @@ input {
 .table-edit{
 	background: white;
 }
+
+.filter-container {
+	background: white;
+}
 /* ---------------- 5) Stock Level CSS END ---------------- */
