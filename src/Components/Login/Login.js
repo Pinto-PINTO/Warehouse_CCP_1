@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../App.css';
-import { Container, Navbar, Row, Col, Nav, Button, Form, Alert } from "react-bootstrap";
+import Footer from "../Footer/Footer"
+import '../../CSS/Login.css'
+import { RiAccountCircleLine } from "react-icons/ri"
+import { Form, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import { useUserAuth } from '../../Util/UserAuthContext';
@@ -32,59 +34,38 @@ function Login() {
 
     return (
 
-        <div className='page vertically-center' >
-            <div className="container">
+        <div className="layout-container">
 
-                {/* --------------- Alert START --------------- */}
-                <div className='background-overlay d-flex justify-content-center align-items-center'>
-                    {
-                        message.error && (
-                            <Alert variant="danger" onClose={() => setMessage({ error: false })} dismissible>
-                                <Alert.Heading className="text-center">Incorrect Login</Alert.Heading>
-                            </Alert>
+            {/* --------------- Alert START --------------- */}
+            <div className='d-flex justify-content-center align-items-center'>
+                {
+                    message.error && (
+                        <Alert variant="danger" onClose={() => setMessage({ error: false })} dismissible>
+                            <Alert.Heading className="text-center">Please try again !</Alert.Heading>
+                        </Alert>
 
-                        )
-                    }
-                </div>
-                {/* --------------- Alert END --------------- */}
-
-                <div className='background-overlay d-flex justify-content-center align-items-center'>
-
-                    {/* -------------- Login Form START -------------- */}
-
-                    <Form className='rounded p-4 p-sm-4 login-form'>
-                        <h1 className='font-weight-bold text-center pb-4 login-form-header'>
-                            Login
-                        </h1>
-
-                        <Form.Group className="mb-3" controlId="formEID">
-                            <Form.Label>Employee Email</Form.Label>
-                            <Form.Control type="name" placeholder="Enter Employee Email" onChange={(e) => setEmail(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formPass">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)} />
-                        </Form.Group>
-
-                        <Button type="submit" className='btn-lg btn-dark login-btn' onClick={handleSubmit}>
-                            Login
-                        </Button>
-
-                        {/* <Form.Group className="mt-3 text-center" controlId="formNewEmply">
-                            <Link to="/new-employee-login">
-                                <Form.Label>Are you a Manager ?</Form.Label>
-                            </Link>
-                        </Form.Group> */}
-
-                    </Form>
-
-                    {/* -------------- Login Form END -------------- */}
-
-                </div>
+                    )
+                }
             </div>
-        </div >
+            {/* --------------- Alert END --------------- */}
 
+            <Form>
+                <div className="inner-container">
+                    <div className="box">
+                        <h1><RiAccountCircleLine /></h1>
+                        <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                        <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                        <button type="submit" onClick={handleSubmit}>LOGIN</button>
+                        {/* <p>Not a member? <span>Sign Up</span></p> */}
+                    </div>
+                </div>
+            </Form>
 
+            <div className='fixed-bottom'>
+                <Footer />
+            </div>
+
+        </div>
 
     )
 
