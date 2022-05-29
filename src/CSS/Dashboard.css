@@ -112,22 +112,22 @@ body {
 }
 .dash-card:nth-child(1):before {
   /* background-image: url(https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ); */
-  background-image: url("../Assets/img/dashboard-card-1.png");
+  background-image: url(https://i.postimg.cc/ry7mmNV9/dashboard-card-1.png);
 }
 .dash-card:nth-child(2):before {
-  background-image: url("../Assets/img/dashboard-card-2.png");
+  background-image: url(https://i.postimg.cc/fTsGBVBN/dashboard-card-2.png);
 }
 .dash-card:nth-child(3):before {
-  background-image: url("../Assets/img/dashboard-card-1.png");
+  background-image: url(https://i.postimg.cc/ry7mmNV9/dashboard-card-1.png);
 }
 .dash-card:nth-child(4):before {
-  background-image: url("../Assets/img/dashboard-card-2.png");
+  background-image: url(https://i.postimg.cc/fTsGBVBN/dashboard-card-2.png);
 }
 .dash-card:nth-child(5):before {
-  background-image: url("../Assets/img/dashboard-card-1.png");
+  background-image: url(https://i.postimg.cc/ry7mmNV9/dashboard-card-1.png);
 }
 .dash-card:nth-child(6):before {
-  background-image: url("../Assets/img/dashboard-card-2.png");
+  background-image: url(https://i.postimg.cc/fTsGBVBN/dashboard-card-2.png);
 }
 
 .card-content {
