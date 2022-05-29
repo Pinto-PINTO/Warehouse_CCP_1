@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../App.css';
+// import '../../App.css';
+import '../../CSS/Dashboard.css'
 import { useNavigate } from "react-router";
 import { useUserAuth } from '../../Util/UserAuthContext';
+import Footer from "../Footer/Footer";
 
 import {
     Badge,
@@ -37,104 +39,85 @@ function Dashboard() {
 
     return (
 
+       
+        //     <Navbar collapseOnSelect expand="lg" variant="dark" sticky="top" className='nav-bar-edit'>
+        //         <Container>
+        //             <Navbar.Brand>Dashboard</Navbar.Brand>
+        //             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        //             <Navbar.Collapse id="responsive-navbar-nav">
+        //                 <Nav className="me-auto"></Nav>
+        //                 <Nav>
+        //                     <Navbar.Text className="nav-component nav-user-name pr-3">
+        //                         <b>Signed as: </b> {user.email}
+        //                     </Navbar.Text>
+        //                     <Button onClick={handleLogout}>Logout</Button>
+        //                 </Nav>
+        //             </Navbar.Collapse>
+        //         </Container>
+        //     </Navbar>
+        
         <div>
-            <Navbar collapseOnSelect expand="lg" variant="dark" sticky="top" className='nav-bar-edit'>
-                <Container>
-                    <Navbar.Brand>Dashboard</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto"></Nav>
-                        <Nav>
-                            <Navbar.Text className="nav-component nav-user-name pr-3">
-                                <b>Signed as: </b> {user.email}
-                            </Navbar.Text>
-                            <Button onClick={handleLogout}>Logout</Button>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-            <div className='page vertically-center'>
-                <div className="container">
-                    <div className='justify-content-center align-items-center'>
-                        <Row>
-                            <Col>
+            <div className='dashboard-layout'>
+                <main className="page-content">
 
-                                <Card style={{ width: '18rem', marginBottom: '20px' }}>
-                                    <Card.Body>
-                                        <Card.Title className='text-center'>Quality Assurance</Card.Title>
-                                        <Link to="/qualityAssurance">
-                                            Quality Assurance
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
+                    <div className="dash-card">
+                        <div className="card-content">
+                            <h2 className="title">Quality Assurance</h2>
+                            <p className="copy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p>
+                            <Link to="/qualityAssurance">
+                                <button className="card-btn">Navigate</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="dash-card">
+                        <div className="card-content">
+                            <h2 className="title">Stock Tracking</h2>
+                            <p className="copy">Plan your next beach trip with these fabulous destinations</p>
+                            <Link to="/stockTag">
+                                <button className="card-btn">Navigate</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="dash-card">
+                        <div className="card-content">
+                            <h2 className="title">Folklift Management</h2>
+                            <p className="copy">It's the desert you've always dreamed of</p>
+                            <Link to="/forkLift">
+                                <button className="card-btn">Navigate</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="dash-card">
+                        <div className="card-content">
+                            <h2 className="title">Product Distribution</h2>
+                            <p className="copy">Seriously, straight up, just blast off into outer space today</p>
+                            <Link to="/productDistribution">
+                                <button className="card-btn">Navigate</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="dash-card">
+                        <div className="card-content">
+                            <h2 className="title">Employee Tracking</h2>
+                            <p className="copy">Plan your next beach trip with these fabulous destinations</p>
+                            <Link to="/employeeTracking">
+                                <button className="card-btn">Navigate</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="dash-card">
+                        <div className="card-content">
+                            <h2 className="title">Vehicle Management</h2>
+                            <p className="copy">It's the desert you've always dreamed of</p>
+                            <Link to="/vehicleManagement">
+                                <button className="card-btn">Navigate</button>
+                            </Link>
+                        </div>
+                    </div>
 
-                            </Col>
-                            <Col>
-
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Body>
-                                        <Card.Title className='text-center'>Track Stock</Card.Title>
-                                        <Link to="/stockTag">
-                                            Track Stock
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-
-                            </Col>
-                            <Col>
-
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Body>
-                                        <Card.Title className='text-center'>Folklift Management</Card.Title>
-                                        <Link to="/forkLift">
-                                            Folklift Management
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Body>
-                                        <Card.Title className='text-center'>Product Distribution</Card.Title>
-                                        <Link to="/productDistribution">
-                                            Product Distribution
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-
-                            </Col>
-                            <Col>
-
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Body>
-                                        <Card.Title className='text-center'>Vehicle Management</Card.Title>
-                                        <Link to="/vehicleManagement">
-                                            Vehicle Management
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-
-                            </Col>
-                            <Col>
-
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Body>
-                                        <Card.Title className='text-center'>Employee Tracking</Card.Title>
-                                        <Link to="/employeeTracking">
-                                            Employee Tracking
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-
-                            </Col>
-                        </Row>
-                    </div >
-                </div>
+                </main>
             </div>
+            <Footer />
         </div>
 
     )

@@ -54,7 +54,7 @@ function Login() {
                     <div className="box">
                         <h1><RiAccountCircleLine /></h1>
                         <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                        <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                         <button type="submit" onClick={handleSubmit}>LOGIN</button>
                         {/* <p>Not a member? <span>Sign Up</span></p> */}
                     </div>

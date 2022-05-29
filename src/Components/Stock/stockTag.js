@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../App.css';
+// import '../../App.css';
+// import '../../CSS/stockTag.css'
 import { Table, Container, Navbar, Row, Col, Nav, Button, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import StockDataService from '../../Util/StockContext';
@@ -16,9 +17,9 @@ function stockTag() {
         console.log("The id of doc to be edited: ", id);
         setStockId(id);
     }
-    
 
-    
+
+
     return (
 
         <div className='page vertically-center'>
@@ -35,3 +36,4 @@ function stockTag() {
 }
 
 export default stockTag
+
