@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../App.css';
+// import '../../App.css';
+import "../../CSS/stockLevel.css"
 import { Table, Container, Navbar, Row, Col, Nav, Button, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import StockDataService from '../../Util/StockContext';
@@ -133,13 +134,14 @@ const StockList = ({ getStockId }) => {
 
     return (
 
+
         <div className='page vertically-center'>
             <div className="container">
-                <div className='background-overlay d-flex justify-content-center align-items-center pb-4'>
+                {/* <div className='background-overlay d-flex justify-content-center align-items-center pb-4'>
                     <div className="container text-center mt-5 dashboard-content">
                         <h1>Track Stock</h1>
                     </div>
-                </div>
+                </div> */}
 
 
                 {/* ------------------- Fiter START -------------------- */}
@@ -205,9 +207,9 @@ const StockList = ({ getStockId }) => {
                             </Col>
 
                         </Row>
-                        <Row className='mt-3'>
+                        <Row className='mt-1'>
                             <Col className="d-grid gap-2">
-                                <Button className="table-filter-btn" variant="success" type="button" onClick={(e) => { Filter(); }}>
+                                <Button className="filter-btn" variant="success" type="button" onClick={(e) => { Filter(); }}>
                                     FILTER
                                 </Button>
                             </Col>
@@ -221,7 +223,7 @@ const StockList = ({ getStockId }) => {
 
                 {/* ---------- Stock Table START ---------- */}
                 <div className="table-responsive table-edit">
-                    <Table striped size="sm" className="table table-bordered table-edit">
+                    <Table striped size="sm" className="table table-bordered">
                         <thead>
                             <tr className="text-center p-2">
                                 <th>#</th>
@@ -249,11 +251,12 @@ const StockList = ({ getStockId }) => {
                                             <Button
                                                 variant="danger"
                                                 onClick={(e) => deleteHandler(doc.id)}
+                                                className="delete-edit"
 
                                             >
-                                                Delete
+                                                D
                                             </Button>
-                                            <Button variant="secondary" onClick={(e) => { getStockId(doc.id); handleOpen(); handleUpdateClick(doc.id); setCurrentId(doc.id); }}>Update</Button>
+                                            <Button variant="secondary" onClick={(e) => { getStockId(doc.id); handleOpen(); handleUpdateClick(doc.id); setCurrentId(doc.id); }}>U</Button>
                                             <Modal
                                                 open={open}
                                                 onClose={handleClose}
@@ -388,22 +391,6 @@ const StockList = ({ getStockId }) => {
                     </Table>
                 </div>
                 {/* ---------- Stock Table END ---------- */}
-
-                <div className="container text-center mt-5">
-                    <Row>
-                        <Col>
-                            <Link to="/stockForm">
-                                <Button variant="secondary">Navigate to Insert Form</Button>
-                            </Link>
-                        </Col>
-                        <Col>
-                            <Link to="/dashboard">
-                                <Button>Navigate to Dashboard</Button>
-                            </Link>
-                        </Col>
-                    </Row>
-                </div>
-
             </div>
         </div >
 

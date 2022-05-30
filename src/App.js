@@ -12,6 +12,7 @@ import VehicleManagement from './Components/Vehicle/vehicleManagement';
 import EmployeeTracking from './Components/Employee/employeeTracking';
 import StockForm from './Components/Stock/stockForm';
 import StockTag from './Components/Stock/stockTag';
+import StockFormTag from './Components/Stock/stockFormTag';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/qualityAssurance' element={<QualityAssurance />} />
           <Route path='/stockTag' element={<StockTag />} />
+          <Route path='/stockFormTag' element={<StockFormTag />} />
           <Route path='/stockForm' element={<StockForm />} />
           <Route path='/forkLift' element={<ForkLift />} />
           <Route path='/productDistribution' element={<ProductDistribution />} />

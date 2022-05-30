@@ -5,13 +5,11 @@ import { Table, Container, Navbar, Row, Col, Nav, Button, Form, InputGroup } fro
 import { Link } from "react-router-dom";
 import StockDataService from '../../Util/StockContext';
 import React, { useState, useEffect } from 'react';
-import StockList from './stockLevel';
+import StockForm from './stockForm';
 import { useNavigate } from "react-router";
 import { useUserAuth } from '../../Util/UserAuthContext';
-// import Footer from "../Footer/Footer";
 
-
-function stockTag() {
+function stockFormTag() {
 
     // State to grab the stock id
     const [stockId, setStockId] = useState("");
@@ -34,13 +32,11 @@ function stockTag() {
     };
 
 
-
     return (
-
         <div>
             <Navbar collapseOnSelect expand="lg" variant="dark" sticky="top" className='nav-bar-edit'>
                 <Container>
-                    <Navbar.Brand>Stock Form</Navbar.Brand>
+                    <Navbar.Brand>Stock Tracking</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto"></Nav>
@@ -49,7 +45,7 @@ function stockTag() {
                                 <b>Signed as: </b> {user.email}
                             </Navbar.Text>
                             <Link to="/dashboard" className="btn btn-primary mr-2 nav-component nav-link-btn ">Dashboard</Link>
-                            <Link to="/stockFormTag" className="btn btn-primary mr-2 nav-component nav-link-btn">Stock Form</Link>
+                            <Link to="/stockTag" className="btn btn-primary mr-2 nav-component nav-link-btn">Stock Tracking</Link>
                             {/* <Button className="btn btn-primary mr-2 nav-component nav-link-btn" onClick={scrollToTop}>UP</Button> */}
                             {/* <Button onClick={handleLogout} className="nav-component"><i className="bi bi-box-arrow-left"></i> Logout</Button> */}
                         </Nav>
@@ -60,18 +56,14 @@ function stockTag() {
                 <Container>
                     <Row>
                         <Col>
-                            <StockList getStockId={getStockIdHandler} />
+                            <StockForm />
                         </Col>
                     </Row>
                 </Container>
             </div>
             {/* <Footer /> */}
         </div>
-
-
-
     )
 }
 
-export default stockTag
-
+export default stockFormTag
