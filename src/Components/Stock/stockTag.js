@@ -48,7 +48,7 @@ function stockTag() {
                             <Navbar.Text className="nav-component nav-user-name">
                                 <b>Signed as: </b> {user.email}
                             </Navbar.Text>
-                            <Link to="/dashboard" className="btn btn-primary mr-2 nav-component nav-link-btn ">Dashboard</Link>
+                            <Link to="/dashboardTag" className="btn btn-primary mr-2 nav-component nav-link-btn ">Dashboard</Link>
                             <Link to="/stockFormTag" className="btn btn-primary mr-2 nav-component nav-link-btn">Stock Form</Link>
                             {/* <Button className="btn btn-primary mr-2 nav-component nav-link-btn" onClick={scrollToTop}>UP</Button> */}
                             {/* <Button onClick={handleLogout} className="nav-component"><i className="bi bi-box-arrow-left"></i> Logout</Button> */}

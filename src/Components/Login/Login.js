@@ -25,7 +25,7 @@ function Login() {
 
         try {
             await logIn(email, password);
-            navigate("/dashboard");
+            navigate("/dashboardTag");
         } catch (err) {
             setMessage({ error: true, msg: err.message })
         }

@@ -1,23 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import '../../App.css';
-// import '../../CSS/stockTag.css'
+import '../../CSS/Dashboard.css';
 import { Table, Container, Navbar, Row, Col, Nav, Button, Form, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import StockDataService from '../../Util/StockContext';
-import React, { useState, useEffect } from 'react';
-import StockForm from './stockForm';
 import { useNavigate } from "react-router";
 import { useUserAuth } from '../../Util/UserAuthContext';
+import Footer from "../Footer/Footer";
+import Dashboard from './Dashboard';
 
-function stockFormTag() {
-
-    // State to grab the stock id
-    const [stockId, setStockId] = useState("");
-
-    const getStockIdHandler = (id) => {
-        console.log("The id of doc to be edited: ", id);
-        setStockId(id);
-    }
+function DashboardTag() {
 
     // Handling Logout
     const { logOut, user } = useUserAuth();
@@ -30,13 +20,11 @@ function stockFormTag() {
             console.log(error.message);
         }
     };
-
-
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" variant="dark" sticky="top" className='nav-bar-edit'>
                 <Container>
-                    <Navbar.Brand>Stock Tracking</Navbar.Brand>
+                    <Navbar.Brand>Dashboard</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto"></Nav>
@@ -44,10 +32,8 @@ function stockFormTag() {
                             <Navbar.Text className="nav-component nav-user-name">
                                 <b>Signed as: </b> {user.email}
                             </Navbar.Text>
-                            <Link to="/dashboardTag" className="btn btn-primary mr-2 nav-component nav-link-btn ">Dashboard</Link>
-                            <Link to="/stockTag" className="btn btn-primary mr-2 nav-component nav-link-btn">Stock Tracking</Link>
                             {/* <Button className="btn btn-primary mr-2 nav-component nav-link-btn" onClick={scrollToTop}>UP</Button> */}
-                            {/* <Button onClick={handleLogout} className="nav-component"><i className="bi bi-box-arrow-left"></i> Logout</Button> */}
+                            <Button onClick={handleLogout} className="filter-btn">Logout</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -56,7 +42,7 @@ function stockFormTag() {
                 <Container>
                     <Row>
                         <Col>
-                            <StockForm />
+                            <Dashboard />
                         </Col>
                     </Row>
                 </Container>
@@ -66,4 +52,4 @@ function stockFormTag() {
     )
 }
 
-export default stockFormTag
+export default DashboardTag
