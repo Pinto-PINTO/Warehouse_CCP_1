@@ -40,7 +40,7 @@ function stockTag() {
         <div>
             <Navbar collapseOnSelect expand="lg" variant="dark" sticky="top" className='nav-bar-edit'>
                 <Container>
-                    <Navbar.Brand>Stock Form</Navbar.Brand>
+                    <Navbar.Brand>Stock Tracking</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto"></Nav>
